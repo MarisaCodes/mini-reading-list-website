@@ -44,3 +44,16 @@ hideBox.addEventListener('change',(event)=>{
         list.style.display = 'initial';
     }
 })
+
+forms['search-books'].addEventListener('keyup',function(event){
+    const term = event.target.value.toLowerCase();
+    const books = list.querySelectorAll('li');
+    books.forEach(function(item){
+        const title = item.firstElementChild.textContent.toLowerCase();
+        if(title.indexOf(term) != -1){
+            item.style.display = 'block';
+        } else {
+            item.style.display = 'none';
+        }
+    })
+})
