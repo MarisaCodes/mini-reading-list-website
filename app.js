@@ -1,3 +1,7 @@
+document.addEventListener('DOMContentLoaded',function(){
+
+
+
 const list = document.querySelector('#book-list ul');
 const addBtn = document.querySelector('button');
 
@@ -56,4 +60,24 @@ forms['search-books'].addEventListener('keyup',function(event){
             item.style.display = 'none';
         }
     })
+})
+
+//tabbed content 
+
+const tabs = document.querySelector('.tabs');
+const panels = document.querySelectorAll('.panel');
+
+tabs.addEventListener('click',function(event){
+    if(event.target.tagName == 'LI') {
+        const targetPanel = document.querySelector(event.target.dataset.target);
+        panels.forEach(function(item){
+            if(item == targetPanel){
+                item.classList.add('active');
+            } else {
+                item.classList.remove('active');
+            }
+        })
+    }
+})
+
 })
